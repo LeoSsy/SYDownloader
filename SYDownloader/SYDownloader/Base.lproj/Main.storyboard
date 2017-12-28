@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="apv-lG-RHr">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="RDd-ar-UDB">
+            <objects>
+                <tableViewController id="fve-ln-85o" customClass="ViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="p4V-dv-wTz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="download" rowHeight="90" id="QNb-nS-LHz" customClass="DownCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QNb-nS-LHz" id="40x-lH-FM6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lww-gG-yK7" customClass="SYProgressView">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="4"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="4" id="c4T-iB-cOv"/>
+                                            </constraints>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9F-du-Z5Y">
+                                            <rect key="frame" x="311" y="22" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="8ml-Jc-nG2"/>
+                                                <constraint firstAttribute="width" constant="44" id="aWR-tP-koT"/>
+                                            </constraints>
+                                            <state key="normal" image="download"/>
+                                            <connections>
+                                                <action selector="downloadBtnClick:" destination="QNb-nS-LHz" eventType="touchUpInside" id="LZ3-KX-Adc"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Lww-gG-yK7" firstAttribute="leading" secondItem="40x-lH-FM6" secondAttribute="leading" id="12W-0n-J9u"/>
+                                        <constraint firstItem="U9F-du-Z5Y" firstAttribute="centerY" secondItem="40x-lH-FM6" secondAttribute="centerY" id="IHI-1u-dTa"/>
+                                        <constraint firstItem="Lww-gG-yK7" firstAttribute="top" secondItem="40x-lH-FM6" secondAttribute="top" id="bne-Bh-mxr"/>
+                                        <constraint firstAttribute="trailing" secondItem="U9F-du-Z5Y" secondAttribute="trailing" constant="20" id="dLO-ZI-YCK"/>
+                                        <constraint firstAttribute="trailing" secondItem="Lww-gG-yK7" secondAttribute="trailing" id="w4o-nq-TOF"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="downloadBtn" destination="U9F-du-Z5Y" id="CYa-f8-o6D"/>
+                                    <outlet property="progressView" destination="Lww-gG-yK7" id="5IS-Ko-xhk"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fve-ln-85o" id="vjz-nT-ouE"/>
+                            <outlet property="delegate" destination="fve-ln-85o" id="WOZ-OH-1qN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="ISD-xg-5oC">
+                        <barButtonItem key="leftBarButtonItem" title="resumeAll" id="OxE-gE-6RX">
+                            <connections>
+                                <action selector="resumeAll:" destination="fve-ln-85o" id="NjE-Um-qIq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="suspendAll" id="H7q-JU-BSZ">
+                            <connections>
+                                <action selector="suspendAll:" destination="fve-ln-85o" id="uK0-I6-u2z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OYv-YQ-XrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-500" y="195"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="drO-4r-85C">
+            <objects>
+                <navigationController id="apv-lG-RHr" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NGn-bn-vhw">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fve-ln-85o" kind="relationship" relationship="rootViewController" id="wRD-RS-DAd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="syM-rH-Uu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1452" y="195"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="download" width="512" height="512"/>
+    </resources>
+</document>
